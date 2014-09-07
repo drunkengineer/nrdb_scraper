@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 
 
-def main():
+def parse_html():
     """Retrieves Hall of Fame data from NetrunnerDB and turns it into a 2D list."""
     decks = []
     url = "http://netrunnerdb.com/en/decklists/halloffame/"
@@ -23,6 +23,13 @@ def get_soup(url):
     html = urlopen(url).read()
     soup = BeautifulSoup(html)
     soup = soup.get_text().split("«")[1].split("»")[1]
+    soup = conv_unicode(soup)
+    return soup
+
+
+def conv_unicode(soup):
+    """Replace non-unicode characters with unicode"""
+    soup = soup.replace("–", "-")
     return soup
 
 
@@ -113,4 +120,4 @@ def add_deck_dates(decks):
 
 
 if __name__ == '__main__':
-    sys.exit(main())
+    sys.exit(parse_html())
