@@ -43,7 +43,7 @@ def most_prolific_users(decks):
     for deck in decks:
         user = deck[5]
         if not user in users:
-            users[user] = [1, int(deck[6])]
+            users[user] = [1, deck[6]]
         else:
             users[user][0] += 1
     return users

@@ -52,7 +52,7 @@ def parse_hall_of_fame(decks, url):
         name = deck[3:-3][0]
         date = deck[-3]
         user = deck[-2]
-        rep = deck[-1]
+        rep = int(deck[-1])
         output.extend((likes, faves, comments, name, date, user, rep))
         decks.append(output)
     return decks
