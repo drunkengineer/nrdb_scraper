@@ -50,11 +50,11 @@ def output_decks(decks):
     longest_user = len(max(transpose_decks[5], key=len))
 
     print("Deck".ljust(longest_deck), "L".center(3), "F".center(3), "C".center(3), "User".ljust(longest_user),
-          "Date".ljust(10))
-    print("-"*longest_deck, "-"*3, "-"*3, "-"*3, "-"*longest_user, "-"*10)
+          "R".center(4), "Date".ljust(10))
+    print("-"*longest_deck, "-"*3, "-"*3, "-"*3, "-"*longest_user, "-"*4, "-"*10)
     for deck in decks:
         print(deck[3].ljust(longest_deck), str(deck[0]).rjust(3), str(deck[1]).rjust(3), str(deck[2]).rjust(3),
-              deck[5].ljust(longest_user), time.strftime("%Y-%m-%d", deck[7]))
+              deck[5].ljust(longest_user), str(deck[6]).rjust(4), time.strftime("%Y-%m-%d", deck[7]))
 
 
 def output_users(users):
