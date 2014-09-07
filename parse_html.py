@@ -44,7 +44,6 @@ def parse_hall_of_fame(decks, url):
     soup = get_soup(url)
     soup = strip_whitespace(soup)
     for deck in soup:
-        output = []
         deck = deck.split("\n")
         likes = int(deck[0])
         faves = int(deck[1])
@@ -53,8 +52,7 @@ def parse_hall_of_fame(decks, url):
         date = deck[-3]
         user = deck[-2]
         rep = int(deck[-1])
-        output.extend((likes, faves, comments, name, date, user, rep))
-        decks.append(output)
+        decks.append([likes, faves, comments, name, date, user, rep])
     return decks
 
 
